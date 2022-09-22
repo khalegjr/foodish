@@ -15,7 +15,7 @@ class UserController extends Controller
             'email' => ['required', 'email:rfc,dns', 'string', 'unique:users', 'max:255'],
             'phone' => ['string', 'max:14', 'nullable'],
             'city' => ['string', 'max:255', 'nullable'],
-            'uf' => ['string', 'max:2', 'nullable']
+            'state' => ['string', 'max:2', 'nullable']
         ]);
 
         return response()->json([
