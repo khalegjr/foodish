@@ -1,5 +1,5 @@
 <?php
-
+// TODO: lembrar de desativar a variável debug
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
@@ -12,9 +12,9 @@ class UserController extends Controller
             $user = User::create($request->all());
 
             return response()->json([
-                'data' => [
-                    'msg' => 'Usuário cadastrado com sucesso!'
-                ]
+                'success' => true,
+                'message' => "Usuário cadastrado com sucesso.",
+                'data' => []
             ], 201);
         } catch (\Exception $e) {
             if(config('app.debug')) {
