@@ -28,9 +28,9 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:2', 'max:255'],
             'email' => ['required', 'email', 'string', 'unique:users', 'max:255'],
-            'phone' => ['alpha_num', 'max:14', 'nullable'],
-            'city' => ['string', 'max:255', 'nullable'],
-            'state' => ['string', 'max:2', 'nullable']
+            'phone' => ['nullable', 'telefone_com_ddd', 'max:14'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'state' => ['nullable', 'uf', 'max:2']
         ];
     }
 
@@ -52,5 +52,26 @@ class StoreUserRequest extends FormRequest
             'message' => 'Validation errors',
             'data' => $validator->errors()
         ]));
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'O campo :attribute é requerido.',
+            'name.string' => 'O campo :attribute é inválido',
+            'name.min' => 'O campo :attribute deve ser maior que 2.',
+            'name.max' => 'O campo :attribute deve ser menor que 255.',
+            'email.required' => 'O campo :attribute é requerido.',
+            'email.email' => 'O campo :attribute é inválido',
+            'email.string' => 'O campo :attribute é inválido',
+            'email.unique' => 'O :attribute já está cadastrado.',
+            'email.max' => 'O campo :attribute deve ser menor que 255.',
+            'phone.telefone_com_ddd' => "Formato de telefone inválido. Use o formato (99)9999-9999, ou similar. ",
+            'phone.max' => 'O campo :attribute deve ser menor ou igual a 14.',
+            'city.string' => 'O campo :attribute é inválido.',
+            'city.max' => 'O campo :attribute deve ser menor que 255.',
+            'state.uf' => 'Estado inválido.',
+            'state.max' => 'O campo :attribute deve ser igual à 2.',
+        ];
     }
 }
