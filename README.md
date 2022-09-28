@@ -1,6 +1,6 @@
 <p align="center"><img src="./public/Logo.svg" width="400" alt="Laravel Logo"></p>
 
-## About Laravel
+## Sobre o projeto
 
 Backend do projeto teste da [JOTACOM](https://www.jotacom.com/).
 
@@ -39,6 +39,24 @@ docker compose up -d
 ### Preparando o ambiente
 
 Daqui em diante mostrarei os comandos como serão em uma máquina com PHP e Composer instalados e, em seguida, a versão a partir do ambiente docker, que não muda quase nada na verdade :wink:.
+
+Instale as dependências
+
+```bash
+composer install
+```
+
+```bash
+./vendor/bin/sail composer install
+```
+
+```bash
+php artisan key:generate
+```
+
+```bash
+./vendor/bin/sail artisan key:generate
+```
 
 Crie a APP Key:
 
